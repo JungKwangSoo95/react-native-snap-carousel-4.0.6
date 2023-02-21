@@ -1032,7 +1032,7 @@ export class Carousel<TData> extends React.Component<
               if (animated) {
                   this._androidRepositioningTimeout = setTimeout(() => {
                       // Without scroll animation, the behavior is completely buggy...
-                      this._repositionScroll(index, true);
+                      // this._repositionScroll(index, true);
                   }, 400); // Approximate scroll duration on Android
               } else {
                   this._repositionScroll(index);
