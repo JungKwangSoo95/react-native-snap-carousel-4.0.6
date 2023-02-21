@@ -261,19 +261,12 @@ export class Carousel<TData> extends React.Component<
   componentWillUnmount () {
       this._mounted = false;
       this.stopAutoplay();
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._initTimeout);
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._apparitionTimeout);
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._hackSlideAnimationTimeout);
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._enableAutoplayTimeout);
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._autoplayTimeout);
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._snapNoMomentumTimeout);
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._androidRepositioningTimeout);
   }
 
@@ -822,7 +815,6 @@ export class Carousel<TData> extends React.Component<
 
       this._scrollTo({ offset: offset + scrollDelta, animated: false });
 
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._hackSlideAnimationTimeout);
       this._hackSlideAnimationTimeout = setTimeout(() => {
           this._scrollTo({ offset, animated: false });
@@ -970,7 +962,6 @@ export class Carousel<TData> extends React.Component<
       // The touchEnd event is buggy on Android, so this will serve as a fallback whenever needed
       // https://github.com/facebook/react-native/issues/9439
       if (IS_ANDROID && this._autoplay && !this._autoplaying) {
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
           clearTimeout(this._enableAutoplayTimeout);
           this._enableAutoplayTimeout = setTimeout(() => {
               this.startAutoplay();
@@ -1058,7 +1049,6 @@ export class Carousel<TData> extends React.Component<
           return;
       }
 
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._autoplayTimeout);
       this._autoplayTimeout = setTimeout(() => {
           this._autoplaying = true;
@@ -1072,11 +1062,8 @@ export class Carousel<TData> extends React.Component<
 
   pauseAutoPlay () {
       this._autoplaying = false;
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._autoplayTimeout);
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearTimeout(this._enableAutoplayTimeout);
-      // @ts-expect-error setTimeout / clearTiemout is buggy :/
       clearInterval(this._autoplayInterval);
   }
 
