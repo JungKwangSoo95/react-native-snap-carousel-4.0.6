@@ -62,7 +62,7 @@
         }],
         // Typescript
         "@typescript-eslint/ban-ts-comment": ["error", {
-            "ts-expect-error": true,
+            "ts-expect-error": false,
             "ts-ignore": "allow-with-description",
             "ts-nocheck": true,
             "ts-check": false,
